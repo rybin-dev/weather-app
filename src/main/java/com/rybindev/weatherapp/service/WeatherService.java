@@ -8,9 +8,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 
 import java.net.URI;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+
 @RequiredArgsConstructor
 public class WeatherService {
     private static final String API_KEY = PropertiesUtil.get("appid");
@@ -38,7 +41,7 @@ public class WeatherService {
 
     @SneakyThrows
     public SearchResultDto getWeatherLocation(String locationName) {
-        String url = "%s/data/2.5/find?q=%s&units=metric&appid=%s".formatted(URL, locationName, API_KEY);
+        String url = "%s/data/2.5/find?q=%s&units=metric&appid=%s".formatted(URL, URLEncoder.encode(locationName, StandardCharsets.UTF_8) , API_KEY);
 
         HttpRequest request = HttpRequest.newBuilder()
                 .GET()
