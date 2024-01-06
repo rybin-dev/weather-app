@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div th:replace="~{fragments/bootstrap-link}"></div>
+    <title>Registration</title>
+</head>
+<body>
+<header th:replace="~{fragments/header}"></header>
+
+<main class="container">
+    <div th:replace="~{forms/registration-form}"></div>
+</main>
+
+<footer th:replace="~{fragments/footer}"></footer>
+<script th:replace="~{fragments/bootstrap-script}"></script>
+</body>
+</html>

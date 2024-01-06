@@ -1,0 +1,20 @@
+<form action="/registration" method="post">
+    <legend>Registration</legend>
+
+    <div th:if="${errors != null}">
+        <ul>
+            <li th:each="error : ${errors}" th:text="${error.message}"></li>
+        </ul>
+    </div>
+
+    <div class="mb-3">
+        <label for="registration-form-email" class="form-label">Email address</label>
+        <input type="email" name="email" class="form-control" id="registration-form-email">
+    </div>
+    <div class="mb-3">
+        <label for="registration-form-password" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="registration-form-password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
